@@ -47,6 +47,9 @@ def absences(sheet, course_dict):
 def print_attendance(sheet, course_dict):
     print()
     print("Attendance for {}".format(sheet['J2'].value))
+    print()
+    for key, value in course_dict.items():
+        print("Absent {} times in {}".format(value, key))
 
 
 main()

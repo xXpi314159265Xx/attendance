@@ -9,8 +9,8 @@ def main():
     a = sheet.max_row
     #print(a)
 
-    absences(sheet, course_list(sheet))
-
+    attendance_dict = absences(sheet, course_list(sheet))
+    print_attendance(sheet, attendance_dict)
 
 def course_list(sheet):
     courses = {}
@@ -40,7 +40,13 @@ def absences(sheet, course_dict):
             course = sheet[cell].value
             #print(course)
             course_dict[course] += 1
-    print(course_dict)
+    #print(course_dict)
     return course_dict
+
+
+def print_attendance(sheet, course_dict):
+    print()
+    print("Attendance for {}".format(sheet['J2'].value))
+
 
 main()

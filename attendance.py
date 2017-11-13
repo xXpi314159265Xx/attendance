@@ -18,8 +18,8 @@ def course_list(sheet):
     values: list of 0 absences and tardies'''
     courses = {}
     items = set()
-    for cellObj in sheet['C']:
-        if cellObj.value == 'Course Code' or cellObj.value == None:
+    for cellObj in sheet['D']:
+        if cellObj.value == 'Course Name' or cellObj.value == None:
             continue
         else:
             items.add(cellObj.value)
@@ -33,7 +33,7 @@ def absences(sheet, course_dict):
     for value in sheet['L']:
         if value.value == 'absent' or value.value == 'late':
             row_number = value.row
-            cell = 'C'+str(row_number)
+            cell = 'D'+str(row_number)
             course = sheet[cell].value
             if course == None:
                 continue
